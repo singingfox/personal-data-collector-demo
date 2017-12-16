@@ -15,3 +15,5 @@ Route::get('/', function () {
     // use custom template to accommodate AngularJS
     return view('index');
 });
+
+Route::post('/data', 'DataCollectionController@saveData');

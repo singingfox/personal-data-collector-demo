@@ -21,7 +21,6 @@
     <body>
         <div class="container">
             <h1>Personal Data Collector Demo App</h1>
-
             <div ng-view></div>
         </div>
     </body>
