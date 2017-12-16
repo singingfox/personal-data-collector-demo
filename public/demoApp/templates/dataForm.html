@@ -1,0 +1,37 @@
+<form name="dataForm" id="dataForm" ng-submit="submit()" ng-controller="HomeController">
+    <label>
+        <h2>Name</h2>
+        <div>
+            <input ng-model="name" ng-minlength="2" ng-maxlength="50" ng-required="true" type="text" placeholder="Please Enter Your Name">
+        </div>
+    </label>
+
+    <h2>Address</h2>
+
+    <label for="street">Street</label>
+    <div>
+        <input ng-model="address.street" ng-maxlength="100" ng-required="true" type="text" placeholder="Please Enter Street Name and Number" id="street">
+    </div>
+
+    <label>City</label>
+    <div>
+        <input ng-model="address.city" ng-maxlength="100" ng-required="true" type="text" id="city" name="city" >
+    </div>
+
+    <div class="left">
+        <label for="state">State</label>
+        <div>
+            <select ng-model="address.state" ng-required="true" id="state" name="state">
+            </select>
+        </div>
+    </div>
+
+    <div class="right">
+        <label for="zipcode">Zipcode</label>
+        <div>
+            <input ng-model="address.zipcode" ng-required="true" ng-maxlength="5" class="short" type="text" id="zipcode" name="zipcode">
+        </div>
+    </div>
+
+    <input type="submit" value="Submit Data">
+</form>
