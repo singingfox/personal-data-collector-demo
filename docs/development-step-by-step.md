@@ -6,4 +6,5 @@
 
 ## Iteration 2 
 
+- [Add boiler plate AngularJS app](dev-i-2.md)
 
