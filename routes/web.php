@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // use custom template to accommodate AngularJS
+    return view('index');
 });
