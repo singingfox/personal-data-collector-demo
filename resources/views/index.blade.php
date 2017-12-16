@@ -14,9 +14,11 @@
 
         <script src="/demoApp/angularjs/angular.min.js"></script>
         <script src="/demoApp/angularjs/angular-route.min.js"></script>
+        <script src="/demoApp/angularjs/angular-messages.min.js"></script>
 
         <script src="/demoApp/app.js"></script>
         <script src="/demoApp/controllers.js"></script>
+        <script src="/demoApp/services.js"></script>
     </head>
     <body>
         <div class="container">

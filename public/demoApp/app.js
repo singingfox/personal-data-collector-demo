@@ -1,6 +1,6 @@
 'use strict';
 angular
-    .module('demoApp', ['ngRoute', 'demoApp.controllers'])
+    .module('demoApp', ['ngRoute', 'ngMessages', 'demoApp.controllers', 'demoApp.services'])
     .config(function($routeProvider) {
         $routeProvider.when('/', {templateUrl: '/demoApp/templates/home.html', controller: 'HomeController'});
         $routeProvider.otherwise({redirectTo: '/'});
@@ -9,3 +9,4 @@ angular
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     }));
+

@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('demoApp.controllers', [])
-    .controller('HomeController', function($scope, $http) {
+    .controller('HomeController', function($scope, $http, States) {
+        $scope.states = States;
+
         $scope.submit = function() {
-            $http.post('/data')
+            var data = { address: $scope.address, name: $scope.name };
+            $http.post('/data', data)
                 .then(
                     function(response) {
                         console.log(response);

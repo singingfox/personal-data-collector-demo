@@ -85,7 +85,7 @@ div.right {
     padding-left: 10px;
 }
 
-input[type=submit] {
+button[type=submit] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -93,4 +93,13 @@ input[type=submit] {
     width: 400px;
     margin-top: 1em;
     font-size: 14px;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+.field-message {
+    color: red;
 }

@@ -1,37 +1,65 @@
-<form name="dataForm" id="dataForm" ng-submit="submit()" ng-controller="HomeController">
-    <label>
-        <h2>Name</h2>
+<form name="dataForm" method="post" ng-submit="submit()" ng-controller="HomeController" novalidate autocomplete="off">
+    <fieldset>
+        <label>
+            <h2>Name *</h2>
+            <div>
+                <input name="name" ng-model="name" type="text" ng-minlength="2" ng-maxlength="50" required placeholder="Please Enter Your Name">
+                <div class="field-message" ng-messages="dataForm.name.$error" ng-if='dataForm.name.$dirty' ng-cloak>
+                    <div ng-message="required">Name is required</div>
+                    <div ng-message="minlength">Minimum 2 characters</div>
+                    <div ng-message="maxlength">Maximum 50 characters</div>
+                </div>
+            </div>
+        </label>
+
+        <h2>Address</h2>
+
+        <label for="street">Street *</label>
         <div>
-            <input ng-model="name" ng-minlength="2" ng-maxlength="50" ng-required="true" type="text" placeholder="Please Enter Your Name">
+            <input name="street" ng-model="address.street" ng-minlength="10" ng-maxlength="100" required type="text" placeholder="Please Enter Street Name and Number" id="street">
+            <div class="field-message" ng-messages="dataForm.street.$error" ng-if='dataForm.street.$dirty' ng-cloak>
+                <div ng-message="required">Street is required</div>
+                <div ng-message="minlength">Minimum 10 characters</div>
+                <div ng-message="maxlength">Maximum 100 characters</div>
+            </div>
         </div>
-    </label>
 
-    <h2>Address</h2>
-
-    <label for="street">Street</label>
-    <div>
-        <input ng-model="address.street" ng-maxlength="100" ng-required="true" type="text" placeholder="Please Enter Street Name and Number" id="street">
-    </div>
-
-    <label>City</label>
-    <div>
-        <input ng-model="address.city" ng-maxlength="100" ng-required="true" type="text" id="city" name="city" >
-    </div>
-
-    <div class="left">
-        <label for="state">State</label>
+        <label for="city">City *</label>
         <div>
-            <select ng-model="address.state" ng-required="true" id="state" name="state">
-            </select>
+            <input name="city" ng-model="address.city" ng-minlength="2" ng-maxlength="100" required type="text" id="city">
+            <div class="field-message" ng-messages="dataForm.city.$error" ng-if='dataForm.city.$dirty' ng-cloak>
+                <div ng-message="required">City is required</div>
+                <div ng-message="minlength">Minimum 2 characters</div>
+                <div ng-message="maxlength">Maximum 100 characters</div>
+            </div>
         </div>
-    </div>
 
-    <div class="right">
-        <label for="zipcode">Zipcode</label>
-        <div>
-            <input ng-model="address.zipcode" ng-required="true" ng-maxlength="5" class="short" type="text" id="zipcode" name="zipcode">
+        <div class="left">
+            <label for="state">State *</label>
+            <div>
+                <select name="state" ng-model="address.state" required id="state">
+                    <option value="">Select a State</option>
+                    <option ng-repeat="state in states" value="<% state %>">
+                        <% state %>
+                    </option>
+                </select>
+                <div class="field-message" ng-messages="dataForm.state.$error" ng-if='dataForm.state.$dirty' ng-cloak>
+                    <div ng-message="required">State is required</div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <input type="submit" value="Submit Data">
+        <div class="right">
+            <label for="zipcode">Zipcode *</label>
+            <div>
+                <input name="zipcode" ng-model="address.zipcode" required ng-maxlength="5" class="short" type="text" id="zipcode">
+                <div class="field-message" ng-messages="dataForm.zipcode.$error" ng-if='dataForm.zipcode.$dirty' ng-cloak>
+                    <div ng-message="required">Zipcode is required</div>
+                    <div ng-message="maxlength">maximum 5 characters</div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" name="submit" ng-disabled="dataForm.$invalid">Submit Data</button>
+    </fieldset>
 </form>
