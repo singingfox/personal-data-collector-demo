@@ -17,3 +17,7 @@ Route::get('/', function () {
 });
 
 Route::post('/data', 'DataCollectionController@saveData');
+
+Route::get('/auth', function() {
+    return view('auth');
+});
