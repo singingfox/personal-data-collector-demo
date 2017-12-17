@@ -12,13 +12,25 @@
 
         <link href="/demoApp/style.css" rel="stylesheet" type="text/css">
 
+        @if(starts_with(strtolower(Request::url()), 'https://hguo.ocef.us'))
         <script src='https://www.google.com/recaptcha/api.js'></script>
-
+        @endif
 
     </head>
     <body>
+        <div class="container">
+            <div>
+                <div class="sso">
+                    SSO Login
+                </div>
+                <hr>
+                <input class="demo-token" placeholder="For DEMO purpose, simply use a token">
+                <button class="right">Bypass Real Login</button>
+            </div>
 
-        <div class="g-recaptcha" data-sitekey="6LdpVD0UAAAAACqZivGIRuUr2MgBPPDquk3wAwqf"></div>
-
+            @if(starts_with(strtolower(Request::url()), 'https://hguo.ocef.us'))
+            <div class="g-recaptcha" data-sitekey="6LdpVD0UAAAAACqZivGIRuUr2MgBPPDquk3wAwqf"></div>
+            @endif
+        </div>
     </body>
 </html>

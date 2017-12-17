@@ -14,7 +14,7 @@
 Route::get('/', function () {
     // use custom template to accommodate AngularJS
     return view('index');
-});
+})->middleware('auth');
 
 Route::post('/data', 'DataCollectionController@saveData');
 

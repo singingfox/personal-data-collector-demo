@@ -76,12 +76,12 @@ select, input.short {
     width: 180px;
 }
 
-div.left {
+.left {
     float: left;
     padding-right: 10px;
 }
 
-div.right {
+.right {
     float: right;
     padding-left: 10px;
 }
