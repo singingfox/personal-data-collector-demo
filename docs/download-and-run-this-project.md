@@ -20,9 +20,6 @@ Run under cloned directory ```personal-data-collector-demo```
 composer update
 cp .env.example .env
 php artisan key:generate
-
-rm database/database.sqlite
-touch database/database.sqlite
 php artisan migrate
 ```
 
