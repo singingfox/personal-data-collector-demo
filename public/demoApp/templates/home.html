@@ -1,5 +1,8 @@
 
-<div class="container">
-    <h1>Personal Data Collector Demo App</h1>
-    <ng-include src="'/demoApp/templates/dataForm.html'" ></ng-include>
+<div class="container" ng-controller="HomeController">
+    <h1>Personal Data Collector Demo App (with directive)</h1>
+
+    <ng-include src="'/demoApp/templates/addressDataForm.html'"></ng-include>
+
+    <modal shown="isModalShown" message="modalMessage" report="report" api="modalAPI"></modal>
 </div>

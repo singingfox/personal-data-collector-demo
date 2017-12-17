@@ -16,4 +16,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/data', 'DataCollectionController@saveData');
+Route::post('/api/data', 'DataCollectionController@saveData');
+
+Route::get('/api/acknowledgement', function() {
+    return 'Thank you for providing your address.';
+});
