@@ -28,6 +28,11 @@
 - [Save address to database upon data submission](dev-i-6.md#1)
 - [Display of returned result - using a modal](dev-i-6.md#2)
 
+## Iteration 7
+
+- [Add Larvel API endpoint for providing acknowledgement content](dev-i-7.md#1)
+- [Add custom AngularJS directive](dev-i-7.md#2)
+
 
 
 
