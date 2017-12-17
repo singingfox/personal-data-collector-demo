@@ -23,6 +23,11 @@
 - [AngularJS form data validation](dev-i-5.md#2)
 - [Laravel database migration](dev-i-5.md#3)
 
+## Iteration 6
+
+- [Save address to database upon data submission](dev-i-6.md#1)
+- [Display of returned result - using a modal](dev-i-6.md#2)
+
 
 
 

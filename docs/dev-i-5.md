@@ -10,14 +10,15 @@
 <a name="2"></a>
 ## AngularJS form data validation
 
-- Inject $http into ```HomeController```
+- Use ```ngMessages``` to help with form data validation
+- Enabled form submission button only all fields are valid
+- Inject $http into ```HomeController``` for making API call(s)
 - Add a bare minimal method ```submit``` to ```HomeController``` (called when the form is submitted)
 
 <a name="3"></a>
 ## Laravel database migration
 
-- Add a empty database file ```database/database.sqlite```
-- Set default database as SQLite in ```.env```
-- Add migration file for "addresses" table ```php artisan make:migrate create_addresses_table```
+- Set up MySQL data and configure in .env
+- Add migration file for "addresses" table ```php artisan make:migrate create_addresses_table``` (then add all fields)
 - Run migration ```php artisan migrate```
 

@@ -15,15 +15,15 @@
         <script src="/demoApp/angularjs/angular.min.js"></script>
         <script src="/demoApp/angularjs/angular-route.min.js"></script>
         <script src="/demoApp/angularjs/angular-messages.min.js"></script>
+        <script src="/demoApp/angularjs/angular-animate.min.js"></script>
 
         <script src="/demoApp/app.js"></script>
         <script src="/demoApp/controllers.js"></script>
         <script src="/demoApp/services.js"></script>
     </head>
     <body>
-        <div class="container">
-            <h1>Personal Data Collector Demo App</h1>
-            <div ng-view></div>
+        <div ng-view>
+
         </div>
     </body>
 </html>

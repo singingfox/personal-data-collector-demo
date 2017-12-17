@@ -1,6 +1,6 @@
 'use strict';
 angular
-    .module('demoApp', ['ngRoute', 'ngMessages', 'demoApp.controllers', 'demoApp.services'])
+    .module('demoApp', ['ngRoute', 'ngMessages', 'ngAnimate', 'demoApp.controllers', 'demoApp.services'])
     .config(function($routeProvider) {
         $routeProvider.when('/', {templateUrl: '/demoApp/templates/home.html', controller: 'HomeController'});
         $routeProvider.otherwise({redirectTo: '/'});

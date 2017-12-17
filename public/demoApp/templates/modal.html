@@ -1,0 +1,69 @@
+<div class="screen-blocker" ng-show="isModalShown">
+    <div class="modal">
+        <div class="modal-title-bar">
+            <h2>Address Data Report</h2>
+            <a class="close-button" ng-click="hideModal()"> &#10006; </a>
+        </div>
+
+        <div class="data-report" ng-show="!report.message">
+            <h3>Total Count of Address Records</h3>
+            <p class="total"><% report.count %></p>
+
+            <h3>Most Recently Saved Address:</h3>
+            <table >
+                <thead></thead>
+                <tbody>
+                    <tr><td></td></tr>
+                </tbody>
+                <tr></tr>
+            </table>
+
+            <div class="most-recent-address">
+                <div class="data-row">
+                    <div class="data-field-name">
+                        Name:
+                    </div>
+                    <div class="data-field-value">
+                        <% report.mostRecentAddress.name %>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div class="data-field-name">
+                        Street:
+                    </div>
+                    <div class="data-field-value">
+                        <% report.mostRecentAddress.street %>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div class="data-field-name">
+                        City:
+                    </div>
+                    <div class="data-field-value">
+                        <% report.mostRecentAddress.city %>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div class="data-field-name">
+                        State:
+                    </div>
+                    <div class="data-field-value">
+                        <% report.mostRecentAddress.state %>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div class="data-field-name">
+                        Zipcode:
+                    </div>
+                    <div class="data-field-value">
+                        <% report.mostRecentAddress.zipcode %>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="report-message" ng-show="report.message"><% report.message %></div>
+
+    </div>
+</div>

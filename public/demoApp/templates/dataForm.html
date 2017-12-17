@@ -1,9 +1,9 @@
-<form name="dataForm" method="post" ng-submit="submit()" ng-controller="HomeController" novalidate autocomplete="off">
+<form name="dataForm" method="post" ng-submit="onSubmit(dataForm)" ng-controller="HomeController" novalidate autocomplete="off">
     <fieldset>
         <label>
             <h2>Name *</h2>
             <div>
-                <input name="name" ng-model="name" type="text" ng-minlength="2" ng-maxlength="50" required placeholder="Please Enter Your Name">
+                <input name="name" ng-model="address.name" type="text" ng-minlength="2" ng-maxlength="50" required placeholder="Please Enter Your Name">
                 <div class="field-message" ng-messages="dataForm.name.$error" ng-if='dataForm.name.$dirty' ng-cloak>
                     <div ng-message="required">Name is required</div>
                     <div ng-message="minlength">Minimum 2 characters</div>
@@ -12,7 +12,7 @@
             </div>
         </label>
 
-        <h2>Address</h2>
+        <h2>Address (U.S. address only )</h2>
 
         <label for="street">Street *</label>
         <div>
@@ -52,14 +52,16 @@
         <div class="right">
             <label for="zipcode">Zipcode *</label>
             <div>
-                <input name="zipcode" ng-model="address.zipcode" required ng-maxlength="5" class="short" type="text" id="zipcode">
+                <input name="zipcode" ng-model="address.zipcode" required ng-maxlength="5" ng-pattern="/^\d{5}$/" class="short" type="text" id="zipcode">
                 <div class="field-message" ng-messages="dataForm.zipcode.$error" ng-if='dataForm.zipcode.$dirty' ng-cloak>
                     <div ng-message="required">Zipcode is required</div>
-                    <div ng-message="maxlength">maximum 5 characters</div>
+                    <div ng-message="maxlength">maximum 5 digits number</div>
+                    <div ng-message="pattern">must be a 5 digits number</div>
                 </div>
             </div>
         </div>
+        <button type="submit" name="submit" ng-click="showModal()" ng-disabled="dataForm.$invalid">Submit Data</button>
 
-        <button type="submit" name="submit" ng-disabled="dataForm.$invalid">Submit Data</button>
+        <ng-include src="'/demoApp/templates/modal.html'"></ng-include>
     </fieldset>
 </form>
