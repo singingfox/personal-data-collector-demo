@@ -8,5 +8,9 @@
 <a name="2"></a>
 ## Add custom AngularJS directive
 
+- "Chain" new directives to module "demoApp"
+-
+
 - Add a service to call the new API endpoint
 - Use the service in the custom directive 
+

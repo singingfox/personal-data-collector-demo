@@ -2,6 +2,10 @@
 
 angular.module('demoApp.controllers', [])
     .controller('HomeController', function($scope, $http, States) {
+
+
+    })
+    .controller('OldHomeController', function($scope, $http, States) {
         $scope.states = States;
         $scope.report = { message: '', mostRecentAddress: {}, count: 0 };
 
