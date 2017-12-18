@@ -1,4 +1,4 @@
-<div class="screen-blocker" ng-show="isModalShown">
+<div class="screen-blocker" ng-show="shown">
     <div class="modal">
         <div class="modal-title-bar">
             <h2>Address Data Report</h2>
@@ -6,6 +6,7 @@
         </div>
 
         <div class="data-report" ng-show="!report.message">
+            <h3 class="acknowledgement"><% acknowledgementContent %></h3>
             <h3>Total Count of Address Records</h3>
             <p class="total"><% report.count %></p>
 
@@ -24,7 +25,7 @@
                         Name:
                     </div>
                     <div class="data-field-value">
-                        <% report.mostRecentAddress.name %>
+                        <% report.mostRecent.name %>
                     </div>
                 </div>
                 <div class="data-row">
@@ -32,7 +33,7 @@
                         Street:
                     </div>
                     <div class="data-field-value">
-                        <% report.mostRecentAddress.street %>
+                        <% report.mostRecent.street %>
                     </div>
                 </div>
                 <div class="data-row">
@@ -40,7 +41,7 @@
                         City:
                     </div>
                     <div class="data-field-value">
-                        <% report.mostRecentAddress.city %>
+                        <% report.mostRecent.city %>
                     </div>
                 </div>
                 <div class="data-row">
@@ -48,7 +49,7 @@
                         State:
                     </div>
                     <div class="data-field-value">
-                        <% report.mostRecentAddress.state %>
+                        <% report.mostRecent.state %>
                     </div>
                 </div>
                 <div class="data-row">
@@ -56,7 +57,7 @@
                         Zipcode:
                     </div>
                     <div class="data-field-value">
-                        <% report.mostRecentAddress.zipcode %>
+                        <% report.mostRecent.zipcode %>
                     </div>
                 </div>
             </div>

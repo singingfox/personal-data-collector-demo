@@ -20,6 +20,7 @@
         <script src="/demoApp/app.js"></script>
         <script src="/demoApp/controllers.js"></script>
         <script src="/demoApp/services.js"></script>
+        <script src="/demoApp/directives.js"></script>
     </head>
     <body>
         <div ng-view>

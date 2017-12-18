@@ -1,78 +1,52 @@
 'use strict';
 
 angular.module('demoApp.controllers', [])
-    .controller('HomeController', function($scope, $http, States) {
+    .controller('HomeController', function($scope, $http, States, Acknowledgement) {
+        $scope.address = {};
         $scope.states = States;
-        $scope.report = { message: '', mostRecentAddress: {}, count: 0 };
-
+        $scope.modalMessage = '';
         /**
-         *  For the basic modal implemented here, when modal is invoked upon submission event,
-         *  it can not be closed for some reason. When modal is invoked upon button click event,
-         *  it can be closed as expected.
+         *  submission event does the following:
          *
-         *  Before this is figured out, use button ng-click event to invoke modal, and use form
-         *  submission event to do the rest:
-         *
-         *  1.  call API endpoint
-         *  2.  reset form ($setPristine)
-         *  3.  present returned data
+         *  1.  call API endpoint to save data
+         *  2.  parse returned data and pass on to modal custom directive
+         *  3.  reset form ($setPristine)
          */
         $scope.onSubmit = function(dataForm) {
-            var data = {
-                name: dataForm.name.$modelValue,
-                street: dataForm.street.$modelValue,
-                city: dataForm.city.$modelValue,
-                state: dataForm.state.$modelValue,
-                zipcode: dataForm.zipcode.$modelValue
-            };
+            $scope.modalMessage = 'Submitting address data ...';
 
-            // clear data
-            $scope.address = {};
-            // reset form states
-            dataForm.$setPristine();
-
-            // report.message is used to toggle the two sections in the main content area of modal
-            $scope.report.message = 'Submitting address data ... ';
-
-            $http.post('/data', data)
+            $http.post('/api/data', $scope.address)
                 .then(
                     function(response) {
                         var data = response.data;
 
                         if(data.success === true) {
-                            $scope.report.message = '';
+                            $scope.modalMessage = '';
 
-                            $scope.report = {
-                                message: '',
-                                count: data.count,
-                                mostRecentAddress: {
-                                    name: data.mostRecent.name,
-                                    street: data.mostRecent.street,
-                                    city: data.mostRecent.street,
-                                    state: data.mostRecent.state,
-                                    zipcode: data.mostRecent.zipcode
-                                }
-                            };
+                            $scope.report = data;
+
+                            Acknowledgement.get().then(function(response) {
+                                $scope.modalAPI.setAcknowledgement(response.data);
+                            });
                         }
                         else {
-                            $scope.report.message = 'Saving address failed due to ' + data.reason;
+                            $scope.modalMessage = 'Saving address failed due to ' + data.reason;
                         }
                     },
                     function(error) {
                         // NOT TESTED
-                        $scope.report.message = error;
+                        $scope.modalMessage = error;
                     });
+
+            // clear data
+            $scope.address = {name: '', street: '', city: '', state: '', zipcode: ''};
+            // reset form states
+            dataForm.$setPristine();
+            // Show modal
+            $scope.toggleModal();
         };
 
-        $scope.hideModal = function() {
-            $scope.report.message = '';
-            $scope.isModalShown = false;
+        $scope.toggleModal = function() {
+            $scope.isModalShown = !$scope.isModalShown;
         };
-
-        $scope.showModal = function() {
-            $scope.isModalShown= true;
-        };
-
-        $scope.hideModal();
-
     });

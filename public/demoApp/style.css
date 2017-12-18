@@ -51,7 +51,8 @@ html, body {
 .container {
     margin: auto;
     width: 400px;
-    padding: 50px;
+    height: 550px;
+    padding: 20px 50px 50px 50px;
     border: 2px solid lightgrey;
     border-radius: 8px;
 }
@@ -118,11 +119,11 @@ fieldset {
     width: 100%;
     height: 100%;
     transition: .3s linear background-color;
-;
 }
 
 .screen-blocker.ng-hide {
     background-color: white;
+    opacity: 0;
 }
 
 .modal {
@@ -132,6 +133,10 @@ fieldset {
     margin: auto;
     margin-top: 100px;
     border-radius: 8px;
+}
+
+.screen-blocker.ng-hide .modal {
+    opacity: 0;
 }
 
 .modal-title-bar {
@@ -149,6 +154,9 @@ fieldset {
     margin-left: 10px;
 }
 
+h3.acknowledgement {
+    font-style: italic;
+}
 .close-button {
     border: 0;
     background-color: transparent;
@@ -161,7 +169,7 @@ fieldset {
 }
 
 .data-report {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
 }
 
 .report-message {
